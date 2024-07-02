@@ -17,13 +17,17 @@ Note: this is an extremely simplified version of this plugin that was originally
 ## Usage
 ```html
 <!--  $history magic will initialize to the url search param if present
-      defaults to the value passed to it (null) ->
+      defaults to the value passed to it (value) -->
 
-<div x-data="{ cf_store = $history(null) }">
+<div x-data="{ cf_store: $history('value') }">
 
   <!--  Changing the state in the app automatically updates the URL
-        Click will change url to ?cf_store=new+value ->
-  <button @click="cf_store = 'new value'">Update</button> 
+        Click will change url to ?cf_store=new+value -->
+  <button @click="cf_store = 'new value'">Update</button>
+  <span 
+        x-text="cf_store" 
+        x-effect="console.log({ cf_store, url: window.location.href })">
+  </span>
 
 </div>
 ```
