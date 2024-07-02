@@ -13,7 +13,7 @@
              new_value: '', 
              initial_cf_value: '', 
              init() { this.initial_cf_value = this.cf_store},
-             refresh() { window.location.refresh() },
+             refresh() { window.location.reload() },
              }"
      x-effect="console.log({ cf_store, url: window.location.href })"
 >
@@ -40,7 +40,7 @@
     
     <div class="w-full sm:max-w-xs mt-2 mt-2 max-w-xl text-sm text-gray-500">
       <span class="tracking-wider text-xs">
-        <span class="underline" @click="refresh">Refresh</span> 
+        <span class="underline cursor-pointer" @click="refresh">Refresh</span> 
         to see persisted state</span>
     </div>
     
