@@ -8,13 +8,21 @@
       defaults to the value passed to it (value) -->
 
 <div x-data="{ cf_store: $history('value') }">
+  <div style="display: flex; gap: 1rem;">
+        CF_STORE VALUE: 
+        <span 
+              x-text="cf_store" 
+              x-effect="console.log({ cf_store, url: window.location.href })"></span>
+  </div>
 
-  <!--  Changing the state in the app automatically updates the URL
+    <!--  Changing the state in the app automatically updates the URL
         Click will change url to ?cf_store=new+value -->
-  <button @click="cf_store = 'new value'">Update</button>
-  <span 
-        x-text="cf_store" 
-        x-effect="console.log({ cf_store, url: window.location.href })">
-  </span>
+    <input x-ref="new_value" :value="cf_store" placeholder="New cf_store value">
+    <button @click="cf_value = $refs.new_value.value">Update</button>
+    
+    <hr>
+    <div style="color: #666">
+        Try changing the URL value and refreshing the page to see how the URL value is always used first. 
+    </div>
 
 </div>
