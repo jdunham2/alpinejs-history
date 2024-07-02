@@ -8,13 +8,16 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <div class="bg-white shadow sm:rounded-lg w-max"
-     x-data="{ cf_store: $history('value'), new_value: '' }"
+     x-data="{ cf_store: $history('value'), new_value: '', initial_cf_value: '', init() { this.initial_cf_value = this.cf_store} }"
      x-effect="console.log({ cf_store, url: window.location.href })"
 >
   <div class="px-4 py-5 sm:p-6">
     <h3 class="text-base font-semibold leading-6 text-gray-900">Update the URL param</h3>
     <div class="mt-2 max-w-xl text-sm text-gray-500">
       <p>Either change it directly from the URL and refresh, or change the input and hit update to see the URL change.</p>
+    </div>
+    <div class="w-full sm:max-w-xs mt-2 mt-2 max-w-xl text-sm text-gray-500">
+      <span class="tracking-wider text-xs">INITIAL VALUE:</span> <span x-text="initial_cf_value"></span>
     </div>
     <form class="mt-5 sm:flex sm:items-center">
       <div class="w-full sm:max-w-xs">
