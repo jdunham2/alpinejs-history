@@ -4,25 +4,29 @@
 <!-- Core Alpine -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-<!--  $history magic will initialize to the url search param if present
-      defaults to the value passed to it (value) -->
+<!-- tailwind css -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-<div x-data="{ cf_store: $history('value'), new_value: '' }" x-init="new_value = cf_store">
-  <div style="display: flex; gap: 1rem;">
-        CF_STORE VALUE: 
-        <span 
-              x-text="cf_store" 
-              x-effect="console.log({ cf_store, url: window.location.href })"></span>
-  </div>
-
-    <!--  Changing the state in the app automatically updates the URL
-        Click will change url to ?cf_store=new+value -->
-    <input x-model="new_value" placeholder="New cf_store value">
-    <button @click="cf_store = new_value">Update</button>
-    
-    <hr>
-    <div style="color: #666">
-        Try changing the URL value and refreshing the page to see how the URL value is always used first. 
+<div class="bg-white shadow sm:rounded-lg w-max"
+     x-data="{ cf_store: $history('value'), new_value: '' }"
+     x-effect="console.log({ cf_store, url: window.location.href })"
+>
+  <div class="px-4 py-5 sm:p-6">
+    <h3 class="text-base font-semibold leading-6 text-gray-900">Update the URL param</h3>
+    <div class="mt-2 max-w-xl text-sm text-gray-500">
+      <p>Either change it directly from the URL and refresh, or change the input and hit update to see the URL change.</p>
     </div>
-
+    <form class="mt-5 sm:flex sm:items-center">
+      <div class="w-full sm:max-w-xs">
+        <label for="email" class="sr-only">New Url Param Value</label>
+        <input 
+               x-model="new_value"
+               type="text" 
+               class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="new url param value">
+      </div>
+      <button type="button" class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:ml-3 sm:mt-0 sm:w-auto"
+      @click="cf_store = new_value"
+      >Update</button>
+    </form>
+  </div>
 </div>
