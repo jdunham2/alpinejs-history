@@ -7,7 +7,7 @@
 <!--  $history magic will initialize to the url search param if present
       defaults to the value passed to it (value) -->
 
-<div x-data="{ cf_store: $history('value') }">
+<div x-data="{ cf_store: $history('value'), new_value: '' }" x-init="new_value = cf_store">
   <div style="display: flex; gap: 1rem;">
         CF_STORE VALUE: 
         <span 
@@ -17,8 +17,8 @@
 
     <!--  Changing the state in the app automatically updates the URL
         Click will change url to ?cf_store=new+value -->
-    <input x-ref="new_value" :value="cf_store" placeholder="New cf_store value">
-    <button @click="cf_value = $refs.new_value.value">Update</button>
+    <input x-model="new_value" placeholder="New cf_store value">
+    <button @click="cf_value = new_value">Update</button>
     
     <hr>
     <div style="color: #666">
