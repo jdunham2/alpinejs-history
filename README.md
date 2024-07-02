@@ -7,7 +7,7 @@ Note: this is an extremely simplified version of this plugin that was originally
 ## Installation
 ```html
 <!-- Alpine Plugin (before Alpine) -->
-<script src="https://cdn.jsdelivr.net/gh/jdunham2/alpinejs-history/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jdunham2/alpinejs-history@1.0.1/index.min.js"></script>
 
 <!-- Core Alpine -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
