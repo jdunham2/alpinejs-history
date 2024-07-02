@@ -32,3 +32,5 @@ Note: this is an extremely simplified version of this plugin that was originally
 </div>
 ```
 
+## Demo
+View a demo of this code working here: https://jdunham2.github.io/alpinejs-history/?cf_store=initial+value
